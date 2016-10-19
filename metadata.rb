@@ -6,6 +6,10 @@ description 'Installs/Configures ZFS on Linux.'
 long_description IO.read(File.join(File.dirname(__FILE__), 'README.md'))
 version '1.0.0'
 
+%w(centos oracle redhat scientific).each do |os|
+  supports os, '>= 6.0'
+end
+
 source_url 'https://github.com/kemra102/zfsonlinux-cookbook' if respond_to?(:source_url) # rubocop:disable Metrics/LineLength
 issues_url 'https://github.com/kemra102/zfsonlinux-cookbook/issues' if
   respond_to?(:issues_url)
