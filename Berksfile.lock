@@ -1,0 +1,13 @@
+DEPENDENCIES
+  yum-epel
+  zfsonlinux
+    path: .
+    metadata: true
+
+GRAPH
+  yum (4.0.0)
+  yum-epel (1.0.1)
+    yum (>= 3.6)
+  zfsonlinux (1.0.0)
+    yum (>= 3.5.2)
+    yum-epel (>= 0.7.0)

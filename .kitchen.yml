@@ -1,0 +1,20 @@
+---
+driver:
+  name: docker
+  use_sudo: false
+
+provisioner:
+  name: chef_zero
+
+platforms:
+  - name: centos-6
+  - name: centos-7
+    driver_config:
+      run_command: /usr/sbin/init
+      privileged: true
+
+suites:
+  - name: default
+    run_list:
+      - recipe[yum-epel::default]
+      - recipe[zfsonlinux::default]
