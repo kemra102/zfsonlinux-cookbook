@@ -26,6 +26,7 @@ This module manages the installation and configuration of [ZFS on Linux](http://
 |:-------------------------------:|:---------:|:-----------------------------------------------------------------------------------------------------------------:|:-------:|
 | `['zfsonlinux']['manage_repo']` | `Boolean` | Determines if Chef should manage the Yum repos for ZFS on Linux or not as well as the EPEL repo on DKMS installs. | `true`  |
 | `['zfsonlinux']['repo']['el']['type']` | `String` | Determines if `dkms` or `kmod` kernel modules should be used. If you are using the stock Red Hat kernel `kmod` is recommended. The default is set to `dksm` as this will work on any system by default. | `dkms`  |
+| `['zfsonlinux']['kmod']['modprobe']` | `Boolean` | Determines if when using the `kmod` installation method if the kernel module should be loaded by Chef or not. | `true` |
 
 ## Usage
 
