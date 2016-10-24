@@ -7,6 +7,7 @@
 2. [Requirements](#requirements)
 3. [Attributes](#attributes)
 4. [Usage](#usage)
+  * [zfsonlinux_zpool](#zfsonlinux_zpool)
 5. [Contributing](#contributing)
 6. [License & Authors](#license-and-authors)
 
@@ -35,6 +36,7 @@ This cookbook can:
 * Optionally sets up the ZFS on Linux (and EPEL if using the `dkms` style install) repo.
 * Installs dependencies is using the `dkms` style install.
 * Installs the ZFS package.
+* Can manage [zpools](#zfsonlinux_zpool).
 
 A minimal default install (managed repos using `dkms`):
 
@@ -49,6 +51,26 @@ node.default['zfsonlinux']['repo']['el']['type'] = 'kmod'
 
 include_recipe 'zfsonlinux::default'
 ```
+
+### `zfsonlinux_zpool`
+
+To create a `zpool`:
+
+```ruby
+zfsonlinux_zpool 'morpheus' do
+  vdevs ['/dev/sdb', '/dev/sdc']
+end
+```
+
+To destroy a `zpool`:
+
+```ruby
+zfsonlinux_zpool 'morpheus' do
+  action :destroy
+end
+```
+
+>NOTE: This resource currently only supports striped zpools.
 
 ## Contributing
 

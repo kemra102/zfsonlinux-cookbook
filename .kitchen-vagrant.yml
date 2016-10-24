@@ -6,11 +6,10 @@ provisioner:
   name: chef_zero
 
 platforms:
+  - name: centos-6.8
   - name: centos-7.2
 
 suites:
-  - name: default
+  - name: vagrant
     run_list:
-      - recipe[yum-epel::default]
-      - recipe[zfsonlinux::default]
-    attributes:
+      - recipe[test::default]

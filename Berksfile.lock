@@ -1,10 +1,14 @@
 DEPENDENCIES
+  test
+    path: test/fixtures/cookbooks/test
   yum-epel
   zfsonlinux
     path: .
     metadata: true
 
 GRAPH
+  test (1.0.0)
+    zfsonlinux (>= 0.0.0)
   yum (4.0.0)
   yum-epel (1.0.1)
     yum (>= 3.6)
