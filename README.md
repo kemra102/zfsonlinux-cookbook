@@ -38,6 +38,7 @@ This cookbook can:
 * Installs dependencies is using the `dkms` style install.
 * Installs the ZFS package.
 * Can manage [zpools](#zfsonlinux_zpool).
+* Can manage [datasets](#zfsonlinux_dataset).
 
 A minimal default install (managed repos using `dkms`):
 
