@@ -13,3 +13,7 @@ end
 zfsonlinux_zpool 'morpheus' do
   vdevs ['/zfs']
 end
+
+zfsonlinux_dataset 'morpheus/nebuchadnezzar' do
+  properties 'mountpoint' => '/ship'
+end

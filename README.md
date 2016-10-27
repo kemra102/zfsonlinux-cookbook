@@ -8,6 +8,7 @@
 3. [Attributes](#attributes)
 4. [Usage](#usage)
   * [zfsonlinux_zpool](#zfsonlinux_zpool)
+  * [zfsonlinux_dataset](#zfsonlinux_dataset)
 5. [Contributing](#contributing)
 6. [License & Authors](#license-and-authors)
 
@@ -71,6 +72,42 @@ end
 ```
 
 >NOTE: This resource currently only supports striped zpools.
+
+### `zfsonlinux_dataset`
+
+To create a dataset with default properties:
+
+```ruby
+zfsonlinux_dataset 'morpheus/nebuchadnezzar'
+```
+
+>NOTE: You should ensure the parent `zpool` exists before creating a dataset on it.
+
+To create a dataset with non-default properties:
+
+```ruby
+zfsonlinux_dataset 'morpheus/nebuchadnezzar' do
+  properties mountpoint: '/ship'
+             compress: 'lz4'
+end
+```
+
+To remove a dataset without children:
+
+```ruby
+zfsonlinux_dataset 'morpheus/nebuchadnezzar' do
+  action :destroy
+end
+```
+
+To remove a dataset with children:
+
+```ruby
+zfsonlinux_dataset 'morpheus/nebuchadnezzar' do
+  remove_children true
+  action :destroy
+end
+```
 
 ## Contributing
 

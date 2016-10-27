@@ -14,6 +14,12 @@ describe package('zfs') do
   it { should be_installed }
 end
 
-describe command('zpool status morpheus') do
+# Test zpool resource
+describe zfs('morpheus') do
+  it { should exist }
+end
+
+# Test dataset resource
+describe command('zfs list morpheus/nebuchadnezzar') do
   its(:exit_status) { should eq 0 }
 end
